@@ -1,0 +1,9 @@
+{
+  "name": "ethiopian-law-guidance",
+  "private": true,
+
+  "scripts": {
+    "dev": "pnpm --filter ./apps/web run dev & pnpm --filter ./apps/api run start:dev"
+  }
+
+}

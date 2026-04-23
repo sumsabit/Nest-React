@@ -1,0 +1,28 @@
+services:
+
+  postgres:
+    image: pgvector/pgvector:pg16
+    container_name: ethiopian-postgres
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: pass123
+      POSTGRES_DB: ethiopian-law-guidance-
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  backend:
+    build: ./backend
+    container_name: ethiopian-backend
+    restart: always
+    ports:
+      - "3000:3000"
+    depends_on:
+      - postgres
+    environment:
+      DATABASE_URL: postgresql://postgres:pass123@postgres:5432/ethiopian-law-guidance-
+
+volumes:
+  postgres_data:
