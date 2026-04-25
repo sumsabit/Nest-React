@@ -74,3 +74,4 @@ Frontend_URL=http://localhost:5173
 nas_bot=http://localhost:8000/chat
 
 This project is for academic purposes (Final Year Project).
+# finalYear
